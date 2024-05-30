@@ -61,15 +61,18 @@ app.get('/api/notes', (request,response)=>{
 })
 
 app.get('/api/notes/:id', (request,response)=>{
-  const id = Number(request.params.id)
-  const note = notes.find(note => note.id === id)
-
-  if(note){
-    response.json(note)
-  }else{
-    response.status(404).end()
-  }
-  
+  Note.findById(request.params.id)
+  .then(note => {
+    if(note){
+      response.json(note)
+    }else{
+      response.status(404).send('id not valid')
+    }
+  })
+  .catch(error => {
+    console.log(error)
+    response.status(500).send({error: 'malformated id'})
+  })
 })
 
 app.delete('/api/notes/:id', (request, response) => {
@@ -82,19 +85,19 @@ app.delete('/api/notes/:id', (request, response) => {
 
 app.post('/api/notes', (request, response)=>{
   const body = request.body
-  if(!body.content){
-    return response.status(400),json({
+  if(body.content === undefined ){
+    return response.status(400).json({
       error: 'content missing'
     })
   }
-  const note = {
+  const note = new Note({
     content: body.content,
-    important: Boolean(body.important) || false,
-    id: generateId()
-  }
-  notes = notes.concat(note)
-  
-  response.json(note)
+    important: body.important || false,
+  })
+ 
+  note.save().then(savedNote => {
+    response.json(savedNote)
+  })
 })
 
 const unknowendpoint = (request, response) => {
