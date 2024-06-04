@@ -6,14 +6,20 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch index.js"
+    "dev": "node --watch index.js",
+    "lint": "eslint ."
   },
   "author": "Rorridev",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "4.19.2",
+    "express": "^4.19.2",
     "mongoose": "^8.4.0"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin-js": "^2.1.0",
+    "eslint": "^9.4.0",
+    "globals": "^15.3.0"
   }
 }
