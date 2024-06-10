@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch index.js",
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development node --watch index.js",
+    "test": "NODE_ENV=test node --test",
+    "modetest": "NODE_ENV=test node --watch index.js",
     "lint": "eslint ."
   },
   "author": "Rorridev",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@stylistic/eslint-plugin-js": "^2.1.0",
     "eslint": "^9.4.0",
-    "globals": "^15.3.0"
+    "globals": "^15.3.0",
+    "supertest": "^7.0.0"
   }
 }

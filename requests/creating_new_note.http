@@ -2,7 +2,7 @@ POST http://localhost:3001/api/notes
 Content-Type: application/json
 
 {
-  "content": "one note of test",
+  "content": "Browser can execute only JavaScript",
   "important": true
 }
 
@@ -16,6 +16,6 @@ PUT http://localhost:3001/api/notes/6658bb012a37ae81477955cd
 Content-Type: application/json
 
 {
-  "content": "Ahora si care mueca?",
+  "content": "TEST?",
   "important": true
 }
