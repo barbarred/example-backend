@@ -1,11 +1,11 @@
 
 POST http://localhost:3001/api/notes
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJhc3RhIiwiaWQiOiI2NjdiMDQ4NDVjOGMzOTZjZTQ0ODRiMDciLCJpYXQiOjE3MTkzNDc0ODh9.2Bc8NoS_i77zTQ8wHGuuvNAXoT_aeDObgZsYT716na0
 
 {
-  "content": "new note with user",
-  "important": true,
-  "userId": "667af542b5f25ba111dcc9b9"
+  "content": "one note with token",
+  "important": false
 }
 ### route to delete note
 
