@@ -1,10 +1,12 @@
+
 POST http://localhost:3001/api/notes
 Content-Type: application/json
 
 {
-  "important": true
+  "content": "new note with user",
+  "important": true,
+  "userId": "667af542b5f25ba111dcc9b9"
 }
-
 ### route to delete note
 
 DELETE http://localhost:3001/api/notes/6658c4c35619158861dd1f25
